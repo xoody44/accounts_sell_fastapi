@@ -1,0 +1,2 @@
+SMTP_USER = "melnikov2007@list.ru"
+SMTP_PASSWORD = "PZ94AUbcFf4XQABq6sgx"

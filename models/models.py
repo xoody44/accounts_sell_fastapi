@@ -1,5 +1,5 @@
 from sqlalchemy.orm import DeclarativeBase
-from sqlalchemy import Column, Integer, String, create_engine, Boolean, Time, Enum
+from sqlalchemy import Column, Integer, String, create_engine, Boolean, Time, ForeignKey
 
 database = "sqlite:////Users/user/PycharmProjects/fastAPI-code/models/database.db"
 
@@ -37,7 +37,7 @@ class UserDBModel(Base):
 class UserAccount(Base):
     __tablename__ = "account"
 
-    account_id: int = Column(Integer, primary_key=True, index=True)
+    id: int = Column(Integer, primary_key=True, index=True)
     elo: int = Column(Integer, nullable=False)
     price: float = Column(String, nullable=False)
     hours: float = Column(String, nullable=False)
@@ -52,6 +52,20 @@ class UserAccount(Base):
         self.hours = hours
         self.date = date
         self.account_type = account_type
+
+
+class AccountBuy(Base):
+    __tablename__ = "account_sell"
+
+    account_sell_id: int = Column(Integer, nullable=False, primary_key=True)
+    account_id: int = Column(Integer, ForeignKey("account.id"))
+    data: str = Column(String, nullable=False)
+
+    def __init__(self, account_sell_id, account_id, data):
+        super().__init__()
+        self.account_sell_id = account_sell_id
+        self.account_id = account_id
+        self.data = data
 
 
 Base.metadata.create_all(bind=engine)

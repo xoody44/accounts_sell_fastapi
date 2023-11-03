@@ -1,6 +1,6 @@
 import sqlite3
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, HTTPException
 from fastapi_cache.decorator import cache
 
 
@@ -21,7 +21,7 @@ async def get_accounts():
             return {
                     "status": "access",
                     "data": result,
-                    "details": None
+                    "detail": None
                 }
         except Exception as ex:
             raise HTTPException(
@@ -29,6 +29,6 @@ async def get_accounts():
                 detail={
                     "status": "error",
                     "data": ex,
-                    "details": None
+                    "detail": None
                 }
             )

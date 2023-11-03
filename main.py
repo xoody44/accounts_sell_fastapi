@@ -1,15 +1,16 @@
 from redis import asyncio as aioredis
 import uvicorn
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from fastapi_users import FastAPIUsers
 
 from auth.auth import auth_backend
-from database import User
+from db import User
 from auth.manager import get_user_manager
 from auth.schemas import UserRead, UserCreate
 from operations.router import router as router_account
+from bgtasks.router import router as router_buying
 
 app = FastAPI(
     title="troll"
@@ -37,15 +38,28 @@ app.include_router(
 
 app.include_router(router_account)
 
+app.include_router(router_buying)
+
 
 @app.get("/protected-route")
 def protected_route(user: User = Depends(current_user)):
-    return f"Hello, {user.email}"
+    try:
+        return f"Hello, {user.email}"
+    except Exception as ex:
+        raise HTTPException(
+            status_code=401,
+            detail={
+                "status": "error",
+                "data": "Hello, friend! pls authorize",
+                "detail": "Unauthorized",
+            }
+
+        )
 
 
 @app.get("/unprotected-route")
 def unprotected_route():
-    return f"Hello, friend! pls authorize"
+    return "Hello, friend! pls authorize"
 
 
 @app.on_event("startup")
