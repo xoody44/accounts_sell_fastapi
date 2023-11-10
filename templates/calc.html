@@ -1,0 +1,54 @@
+{% extends "header.html" %}
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link type="text/css" href="{{ url_for('static', path='style-calc.css') }}" rel="stylesheet">
+    <title>Calculation price</title>
+    {% endblock %}
+</head>
+{% block body %}
+<body>
+<div id="particles-js"></div>
+<div class="container py-3">
+    <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+            <a href="/" class="menu mm">
+                <span class="fs-4">Fastdobeg store</span>
+            </a>
+            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/help">Помощь</a>
+                <a class="py-2 link-body-emphasis text-decoration-none" href="/reviews">Отзывы</a>
+            </nav>
+        </div>
+    </header>
+    <div class="cont cont">
+        <span class="text t">Выберите количество ELO, которое вы хотите иметь на своем аккаунте</span>
+        <div class="slider">
+            <output for="fade" id="volume">100 ELO</output>
+            <output for="fade" id="price">К оплате: 100₽</output>
+            <input type="range" id="fade" min="100" max="4500" value="100" step="25" oninput="outputUpdate(value)">
+            <script type="text/javascript">
+                function outputUpdate(vol) {
+                    var output = document.querySelector('#volume');
+                    var output1 = document.querySelector('#price');
+                    output.value = vol + " ELO";
+                    output1.value = "К оплате: " + vol * 5 + "₽";
+                }
+            </script>
+            <button type="button" class="btn btn"><a class="h btnh" href="https://qiwi.com/n/XOODYMAINOP">Купить</a>
+            </button>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"
+        integrity="sha512-Kef5sc7gfTacR7TZKelcrRs15ipf7+t+n7Zh6mKNJbmW+/RRdCW9nwfLn4YX0s2nO6Kv5Y2ChqgIakaC6PW09A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{ url_for('static', path='js/script.js') }}"></script>
+</body>
+{% endblock %}

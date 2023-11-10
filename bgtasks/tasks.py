@@ -1,6 +1,5 @@
 import smtplib
 import sqlite3
-from email.mime.text import MIMEText
 
 from config import SMTP_USER, SMTP_PASSWORD
 
@@ -40,7 +39,7 @@ def get_account(account_id: int = 1):
             return f"Something wrong\n{ex}"
 
 
-def send_message(customer_email: get_email() | str, account_id: int, ) -> str:
+def send_message(customer_email: str, account_id: int, ) -> str:
     sender = SMTP_USER
     password = SMTP_PASSWORD
     server = smtplib.SMTP(SMTP_HOST, SMTP_PORT)

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+body{
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+}
+
+.mm {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    margin-top: 15px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+.mm:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-5px);
+}
+
+.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding-top: 400px;
+    min-height: 30vh;
+    background-color: #3d4954;
+    border-radius: 30px;
+}
+
+.slider {
+    position: relative;
+    border-radius: 8px;
+    width: 800px;
+    height: 20px;
+    top: -200px;
+    left: -300px;
+}
+
+output#volume {
+    position: absolute;
+    left: -40px;
+    top: -20px;
+    padding: 5px;
+    color: black;
+    background-color: #3d4954;
+    border-radius: 10px 10px 0px 10px;
+    font-size: 175%;
+}
+
+output#price {
+    position: absolute;
+    left: -40px;
+    top: 20px;
+    padding: 5px;
+    color: black;
+    background-color: #3d4954;
+    border-radius: 10px 10px 0px 10px;
+    font-size: 175%;
+}
+
+#fade {
+    position: relative;
+    left: 100px;
+    width: 800px;
+    height: 15px;
+    background-color: #3d4954;
+    outline: none;
+    border-radius: 10px;
+}
+
+.btn {
+    font-size: 150%;
+    position: relative;
+    background-color: white;
+    color: black;
+    margin-top: 15px;
+    left: 50%;
+    transition: all 0.3s;
+}
+.btn:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-5px);
+}
+
+.btnh {
+    text-decoration: none;
+    color: black;
+}
+
+.t {
+    font-size: 130%;
+    position: relative;
+    width:70%;
+    top: -300px;
+    left: 30%;
+    color: white;
+}
+
+div#particles-js {
+    z-index: -1;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}

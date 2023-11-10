@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+body {
+    font-family: 'Raleway', sans-serif;
+}
+.co {
+    margin: 0 auto;
+    padding: 50px;
+    position: relative;
+    width: 1200px;
+    height: 750px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    overflow-x: scroll;
+    gap: 1em;
+}
+
+.reviews {
+    padding: 10px;
+    max-width: 250px;
+    max-height: 250px;
+    align-items: center;
+    border-radius: 25px;
+    justify-content: center;
+}
+
+.r1 {
+    max-width: 250px;
+    max-height: 250px;
+    background-color: #0b48e0;
+    color: white;
+    border-radius: 20px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+.r1:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-3px);
+}
+
+.r2 {
+    max-width: 250px;
+    color: white;
+    max-height: 250px;
+    background-color: #0b48e0;
+    border-radius: 20px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.r2:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-5px);
+}
+
+.r3 {
+    background-color: #0b48e0;
+    color: white;
+    border-radius: 20px;
+    max-width: 250px;
+    max-height: 250px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.r3:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-5px);
+}
+
+.r4 {
+    background-color: #0b48e0;
+    color: white;
+    border-radius: 20px;
+    max-width: 250px;
+    max-height: 250px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.r4:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-5px);
+}
+
+div#particles-js {
+    z-index: -1;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}

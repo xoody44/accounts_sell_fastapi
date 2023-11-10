@@ -9,7 +9,7 @@ router = APIRouter(
 
 
 @router.get("/get_acc")
-def buy_account(background_tasks: BackgroundTasks):
+async def buy_account(background_tasks: BackgroundTasks):
     try:
         background_tasks.add_task(tasks.send_message, "melnikov2007@list.ru", 1)
         return {

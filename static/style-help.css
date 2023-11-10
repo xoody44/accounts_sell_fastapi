@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
+.mm {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    margin-top: 15px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+.mm:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-5px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.que {
+    align-items: center;
+    width: 1250px;
+    height: 450px;
+    margin: 15px;
+    background-color: #0bd5e8;
+    border-radius: 25px;
+    border: 1px solid black;
+    text-decoration: none;
+}
+
+.answers {
+    margin: 15px;
+    padding: 1px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.a {
+    align-items: center;
+    width: 1250px
+    min-height: 0px;
+    margin: 15px;
+    background-color: #0bd5e8;
+    border-radius: 25px;
+}
+
+div#particles-js {
+    z-index: -1;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}

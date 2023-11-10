@@ -1,3 +1,4 @@
+from loguru import logger
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import Column, Integer, String, create_engine, Boolean, Time, ForeignKey
 

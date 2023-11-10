@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+body {
+    background-color: white;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+div#form_input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f2930;
+    color: white;
+    font-size: 200%;
+    width: 800px;
+    height: 450px;
+    margin-left: 30%;
+    margin-top: 3%;
+    border-radius: 25px;
+    border: 3px solid #041424;
+}
+input {
+    margin: 5px;
+    background-color: white;
+    border-radius: 5px;
+    border: 0px solid black;
+    transition: all 0.3s;
+}
+input:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-1px);
+}
+
+.btn {
+    background-color: white;
+    font-size: 115%;
+    color: black;
+    margin-top: 15px;
+    transition: all 0.3s;
+}
+.btn:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-5px);
+}
+
+.mm {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    margin-top: 15px;
+    transition: all 0.3s;
+}
+.mm:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-5px);
+}
+
+div#particles-js {
+    z-index: -1;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}

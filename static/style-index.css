@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+body {
+    height: 100%;
+    weight: 100%;
+    font-family: 'Raleway', sans-serif;
+}
+/*
+.bg2 {
+    animation: ColorChange 10s ease infinite alternate;
+    height: 1080px;
+    weight: 1920px;
+    position: relative;
+    background-color: white;
+}
+*/
+/*
+@keyframes ColorChange {
+    0% {
+        background-color: #000000;
+    }
+
+    100% {
+        background-color: #6c757d;
+    }
+}
+*/
+.btn {
+    font-size: 125%;
+    background-color: white;
+    color: black;
+    margin-top: 15px;
+    box-shadow: 0 0 30px #fffcfc;
+    transition: all 0.3s;
+}
+.btn:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    transform: translateY(-3px);
+    box-shadow: 0 0 0 var(--clr-accent);
+}
+
+div#particles-js {
+    z-index: -1;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
