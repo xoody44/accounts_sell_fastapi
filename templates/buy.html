@@ -28,8 +28,7 @@
     </header>
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
         <h1 class="display-4 fw-normal text-body-emphasis">Цены</h1>
-        <p class="fs-5 text-body-secondary">Самые лучшие аккаунты Faceit только у нас<br>При переводе указывайте товар и
-            свои контактные данные, на которые будет передан аккаунт</p>
+        <p class="fs-5 text-body-secondary">Самые лучшие аккаунты Faceit только у нас<br>При переводе указывайте товар и свои контактные данные, на которые будет передан аккаунт</p>
     </div>
     <main>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
@@ -46,8 +45,7 @@
                             <li>1000 Faceit Points включено</li>
                             <li>Родная почта</li>
                         </ul>
-                        <button type="button" class="btn btn"><a href="https://qiwi.com/n/XOODYMAINOP">Купить
-                            аккаунт</a></button>
+                        <button type="button" class="btn btn" id="updateDetails">Купить аккаунт</button>
                     </div>
                 </div>
             </div>
@@ -64,8 +62,7 @@
                             <li>1000 Faceit Points включено</li>
                             <li>Родная почта</li>
                         </ul>
-                        <button type="button" class="btn btn"><a href="https://qiwi.com/n/XOODYMAINOP">Купить
-                            аккаунт</a></button>
+                        <button type="button" class="btn btn" id="updateDetails1">Купить аккаунт</button>
                     </div>
                 </div>
             </div>
@@ -82,17 +79,55 @@
                             <li>1000 Faceit Points включено</li>
                             <li>Родная почта</li>
                         </ul>
-                        <button type="button" class="btn btn"><a href="https://qiwi.com/n/XOODYMAINOP">Купить
-                            аккаунт</a></button>
+                        <button type="button" class="btn btn" id="updateDetails2">Купить аккаунт</button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <dialog id="favDialog">
+        <form>
+          <section>
+              <h6>Проверяйте правильность введенных данных.</h6>
+            <p>
+                <input type="email" name="email" placeholder="Введите почту"><br>
+            </p>
+          </section>
+          <menu>
+            <button id="cancel" class="menu mm" type="reset">Cancel</button>
+            <button type="submit" class="menu mm">Confirm</button>
+          </menu>
+        </form>
+      </dialog>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"
         integrity="sha512-Kef5sc7gfTacR7TZKelcrRs15ipf7+t+n7Zh6mKNJbmW+/RRdCW9nwfLn4YX0s2nO6Kv5Y2ChqgIakaC6PW09A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{ url_for('static', path='js/script.js') }}"></script>
+<script>
+        (function () {
+          var updateButton = document.getElementById("updateDetails");
+          var updateButton1 = document.getElementById("updateDetails1");
+          var updateButton2 = document.getElementById("updateDetails2");
+          var cancelButton = document.getElementById("cancel");
+          var favDialog = document.getElementById("favDialog");
+
+          updateButton.addEventListener("click", function () {
+            favDialog.showModal();
+          });
+
+          updateButton1.addEventListener("click", function () {
+            favDialog.showModal();
+          });
+
+          updateButton2.addEventListener("click", function () {
+            favDialog.showModal();
+          });
+
+          cancelButton.addEventListener("click", function () {
+            favDialog.close();
+          });
+        })();
+</script>
 </body>
 {% endblock %}

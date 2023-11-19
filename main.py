@@ -13,7 +13,7 @@ from auth.auth import auth_backend
 from db import User
 from auth.manager import get_user_manager
 from auth.schemas import UserRead, UserCreate
-from pages.router import router_account, router_buying, router_reviews, router_help, router_auth
+from pages.router import router_account, router_calc, router_reviews, router_help, router_reg
 
 app = FastAPI(
     title="troll"
@@ -67,10 +67,10 @@ app.include_router(
     tags=["auth"],
 )
 app.include_router(router_account)
-app.include_router(router_buying)
+app.include_router(router_calc)
 app.include_router(router_reviews)
-app.include_router(router_auth)
 app.include_router(router_help)
+app.include_router(router_reg)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
