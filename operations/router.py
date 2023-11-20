@@ -19,7 +19,7 @@ async def main(request: Request):
 
 
 @router.get("/{account_id}")
-@cache(expire=60)
+@cache(expire=3600)
 async def get_accounts(account_id):
     with sqlite3.connect(database="models/database.db") as connection:
         cursor = connection.cursor()
