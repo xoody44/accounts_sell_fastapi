@@ -39,30 +39,18 @@ router_reg = APIRouter(
 
 template = Jinja2Templates(directory="templates")
 
-
 ####################################################
 #              router for account page             #
 ####################################################
 
 
-@router_account.get("/", response_class=HTMLResponse)
-async def template_buy(request: Request):
-    logger.debug("loading page: Buy account")
-    return template.TemplateResponse("buy.html", {"request": request})
-
-
-@router_account.post("/sending")
+@router_account.post("/")
 async def template_send(background_tasks: BackgroundTasks, email: Annotated[str, Form()]):
-    logger.info("sending data...")
     try:
+        logger.info("sending data...")
         background_tasks.add_task(tasks.send_message, email, 1)
         logger.info("message sent")
-        return RedirectResponse("/", status_code=303), \
-            {
-            "status": "access",
-            "data": email,
-            "detail": None
-            }
+        return RedirectResponse("/account", status_code=303)
     except Exception as ex:
         logger.error("error while sending message")
         raise HTTPException(
@@ -73,6 +61,12 @@ async def template_send(background_tasks: BackgroundTasks, email: Annotated[str,
                 "detail": None
             }
         )
+
+
+@router_account.get("/", response_class=HTMLResponse)
+async def template_buy(request: Request):
+    logger.debug("loading page: Buy account")
+    return template.TemplateResponse("buy.html", {"request": request})
 
 
 @router_account.get("/{account_id}")
@@ -107,7 +101,7 @@ async def get_accounts(account_id):
 
 
 ####################################################
-#              router for buy page                 #
+#              router for calc page                #
 ####################################################
 
 
@@ -165,6 +159,11 @@ async def template_help(request: Request):
 ####################################################
 #              router for register page            #
 ####################################################
+
+@router_reg.post("/authorize")
+async def template_authorize(request: Request):
+    logger.debug("loading page: authorize")
+    return template.TemplateResponse("form.html", {"request": request})
 
 
 @router_reg.get("/authorize")

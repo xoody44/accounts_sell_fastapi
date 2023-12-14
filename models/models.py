@@ -3,7 +3,6 @@ from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import Column, Integer, String, create_engine, Boolean, Time, ForeignKey
 
 database = "sqlite:////Users/user/PycharmProjects/fastAPI-code/models/database.db"
-
 engine = create_engine(database)
 
 
