@@ -10,6 +10,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from auth.auth import auth_backend
+from config import REDIS_HOST, APP_PORT, APP_HOST
 from db import User
 from auth.manager import get_user_manager
 from auth.schemas import UserRead, UserCreate
@@ -26,7 +27,7 @@ logger.add("logging/logs.log",
            compression="zip")
 
 origins = [
-    "http://localhost:8000"
+    f"http://{APP_HOST}:{APP_PORT}"
 ]
 
 app.add_middleware(
@@ -113,7 +114,7 @@ async def unprotected_route():
 
 @app.on_event("startup")
 async def startup():
-    redis = aioredis.from_url("redis://localhost")
+    redis = aioredis.from_url(f"redis://{REDIS_HOST}")
     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
     logger.info("redis is working...")
 
