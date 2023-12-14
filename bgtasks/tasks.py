@@ -1,10 +1,7 @@
 import smtplib
 import sqlite3
 
-from config import SMTP_USER, SMTP_PASSWORD
-
-SMTP_HOST = "smtp.mail.ru"
-SMTP_PORT = 587
+from config import SMTP_USER, SMTP_PASSWORD, SMTP_HOST, SMTP_PORT
 
 
 def get_email():

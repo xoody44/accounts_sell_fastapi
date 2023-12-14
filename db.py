@@ -8,7 +8,9 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.ext.declarative import DeclarativeMeta, declarative_base
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = "sqlite+aiosqlite:////Users/user/PycharmProjects/fastAPI-code/models/database.db"
+from config import DB_PATH
+
+DATABASE_URL = f"sqlite+aiosqlite:////{DB_PATH}"
 Base: DeclarativeMeta = declarative_base()
 
 

@@ -2,7 +2,9 @@ from loguru import logger
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import Column, Integer, String, create_engine, Boolean, Time, ForeignKey
 
-database = "sqlite:////Users/user/PycharmProjects/fastAPI-code/models/database.db"
+from config import DB_PATH
+
+database = f"sqlite:////{DB_PATH}"
 engine = create_engine(database)
 
 
