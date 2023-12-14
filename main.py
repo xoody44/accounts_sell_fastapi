@@ -1,3 +1,4 @@
+import sentry_sdk
 from loguru import logger
 from redis import asyncio as aioredis
 import uvicorn
@@ -18,6 +19,12 @@ from pages.router import router_account, router_calc, router_reviews, router_hel
 
 app = FastAPI(
     title="troll"
+)
+
+sentry_sdk.init(
+    dsn="https://912c3b8c168a72d090b48deba5a44d51@o4506394449739776.ingest.sentry.io/4506394452754432",
+    traces_sample_rate=1.0,
+    profiles_sample_rate=1.0,
 )
 
 logger.add("logging/logs.log",
