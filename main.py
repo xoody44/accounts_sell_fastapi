@@ -11,7 +11,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from auth.auth import auth_backend
-from config import REDIS_HOST, APP_PORT, APP_HOST
+from config import REDIS_HOST, APP_PORT, APP_HOST, SENTRY_SDK_DSN
 from db import User
 from auth.manager import get_user_manager
 from auth.schemas import UserRead, UserCreate
@@ -22,7 +22,7 @@ app = FastAPI(
 )
 
 sentry_sdk.init(
-    dsn="https://912c3b8c168a72d090b48deba5a44d51@o4506394449739776.ingest.sentry.io/4506394452754432",
+    dsn=f"https://{SENTRY_SDK_DSN}",
     traces_sample_rate=1.0,
     profiles_sample_rate=1.0,
 )

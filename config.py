@@ -19,3 +19,5 @@ DB_PATH = getenv("DB_PATH")
 SECRET_TOKEN = getenv("SECRET_TOKEN")
 
 SECRET_KEY = getenv("SECRET_KEY")
+
+SENTRY_SDK_DSN = getenv("SENTRY_SDK_DSN")
